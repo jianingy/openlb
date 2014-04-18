@@ -11,50 +11,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Bootstrap 101 Template</title>
 
-    <!-- Bootstrap -->
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet" />
-    <style>
-        .bs-callout {
-        margin: 20px 0;
-        padding: 20px;
-        border-left: 3px solid #eee;
-        }
+    {% assets output="css/head.css",
+              "css/metro-bootstrap.min.css",
+              "css/metro-bootstrap-responsive.min.css" %}
+    <link href="{{ ASSET_URL }}" rel="stylesheet" />
+    {% endassets %}
 
-        .bs-callout:hover {
-        background-color: #f4f8fa;
-        border-color: #5bc0de;
-        }
-
-        .bs-callout-none {
-        border-color: transparent;
-        }
-
-        .grey {
-        color: #555;
-        }
-
-        a.none {
-        text-decoration: none !important;
-        }
-    </style>
-
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    {% assets output="js/head.js",
+              "js/jquery-2.1.0.min.js",
+              "js/metro.min.js" %}
+    <script src="{{ ASSET_URL }}" type="text/javascript"></script>
+    {% endassets %}
   </head>
   <body>
-    <div class="container" role="main">
-    {% block content %}{% endblock %}
-    </div>
+      <div class="metro" role="main">
+          <div class="grid">
+              <div class="row">
+                  <div class="span3">
+                      <nav class="sidebar dark">
+                          <ul>
+                              <li class="title">Items Group 1</li>
+                              <li class="active"><a href="#"><i class="icon-home"></i>Dashboard</a></li>
+                              <li class="stick bg-red"><a href="#"><i class="icon-cog"></i>Layouts</a></li>
+                              <li class="stick bg-yellow">
+                                  <a class="dropdown-toggle" href="#"><i class="icon-tree-view"></i>Sub menu</a>
+                                  <ul class="dropdown-menu" data-role="dropdown">
+                                      <li><a href="">Subitem 1</a></li>
+                                      <li><a href="">Subitem 2</a></li>
+                                      <li><a href="">Subitem 3</a></li>
+                                      <li class="divider"></li>
+                                      <li><a href="">Subitem 4</a></li>
+                                      <li class="disabled"><a href="">Subitem 4</a></li>
+                                  </ul>
+                              </li>
+                              <li class="stick bg-green"><a href="#">Thread item</a></li>
+                              <li class="disabled"><a href="#">Disabled item</a></li>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="/static/js/jquery-2.1.0.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/static/js/bootstrap.min.js"></script>
+                              <li class="title">Items Group 2</li>
+                              <li><a href="#">Other Item 1</a></li>
+                              <li><a href="#">Other item 2</a></li>
+                              <li><a href="#">Other item 3</a></li>
+                              <li>
+                                  <a class="dropdown-toggle" href="#">Sub menu 2</a>
+                                  <ul class="dropdown-menu" data-role="dropdown">
+                                      <li><a href="">Subitem 1</a></li>
+                                      <li><a href="">Subitem 2</a></li>
+                                      <li><a href="">Subitem 3</a></li>
+                                  </ul>
+                              </li>
+                          </ul>
+                      </nav>
+
+                  </div>
+                  <div class="offset1 span8">
+                      {% block content %}{% endblock %}
+                  </div>
+              </div>
+          </div>
+
+    </div>
     {% block javascript %}{% endblock %}
   </body>
 </html>

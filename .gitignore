@@ -16,3 +16,5 @@ pbr*.egg/
 .venv/
 *.mo
 *.sw?
+*.db
+.webassets-cache/

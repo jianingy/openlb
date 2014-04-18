@@ -44,11 +44,9 @@ def main():
     if CONF.debug:
         logging.basicConfig(level=logging.DEBUG)
 
-    frontend_wsgi.init_app()
-    wsgi_app = frontend_wsgi.wsgi_app()
+    wsgi_app = frontend_wsgi.create_app()
 
     if CONF.debug:
-        wsgi_app.debug = CONF.debug
         wsgi_app = DebuggedApplication(wsgi_app, evalex=True)
 
     app = SharedDataMiddleware(wsgi_app, {

@@ -17,4 +17,4 @@ class VirtualHost(BASE, db.HasIdMixin, db.TimestampMixin):
     __tablename__ = 'tb_virtualhosts'
 
     server_name = sa.Column(sa.String(60), nullable=False, unique=True)
-    bind_address = sa.Column(sa.String(60), nullable=False, unique=True)
+    listen = sa.Column(sa.String(60), nullable=False, unique=True)

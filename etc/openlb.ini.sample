@@ -1,2 +1,2 @@
 [database]
-connection = sqlite:///openlb.db
+connection = sqlite:////tmp/openlb.db
